@@ -1,0 +1,54 @@
+.container{
+    background-color: rgb(223, 172, 32);
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 0;
+  }
+#date{
+    width:100%;
+    background-color: rgb(221, 211, 120);
+    height:50px;
+    font-size: 2rem;
+}
+h1{
+   text-align: center;
+    font-size: 4rem;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: rgb(63, 13, 13);
+}
+#dayofWeek{
+    width:100%;
+    background-color: rgb(221, 211, 120);
+    height:50px;
+    font-size: 2rem;
+}
+#currentTime{
+    width:100%;
+    height:50px;
+    color: blue;
+    font-size: 2rem;
+  
+}
+label{
+    width:30%;
+    height:50px;
+    background-color: rgb(211, 142, 15);
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 1.5rem;
+}
+input{
+    background-color: rgb(194, 150, 93);
+    width:80%;
+    height:40px;
+    font-size: 2em;
+}
+button{
+    background-color: rgb(153, 97, 13);
+    width:10%;
+    height:40px;
+    font-size:1.5rem;
+}
+

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.7.0/moment.min.js" type="text/javascript"></script>
+
+</head>
+<body>
+    <div class = "container">
+        <div class = "header"><h1>Day Planner</h1>
+        </div>
+        <div id= "currentTime"></div>
+        <div id = "date"></div>
+        <div id = "dayofWeek"></div>
+        <ul id = 'uList'>
+            <li id ="l1">
+        <div class = "event">
+                <label  class ="time">09:00 am</label>
+                <input type = "text" value = " " name= "event9" class = "dayevent"><button type = "submit" id = "save">Save</button>
+            </div> </li>
+            <li id="l2">
+            <div class = "event">
+                <label  class="time">10:00 am</label>
+                <input type = "text" value = " " name= "event10" class = "dayevent"><button type = "submit" id = "save">Save</button>
+            </div> </li>
+            <li id = "l3">
+            <div class = "event">
+                <label  class ="time">11:00 am</label>
+                <input type = "text" value = " " name= "event11" class ="dayevent"><button type = "submit" id = "save">Save</button>
+            </div> </li>
+            <li id = "l4">
+            <div class = "event">
+                <label  class ="time">12:00 am</label>
+                <input type = "text" value = " " name= "event12" class = "dayevent"><button type = "submit" id = "save">Save</button>
+            </div> </li>
+            <li id = "l5">
+            <div class = "event">
+                <label  class ="time">01:00 pm</label>   
+                <input type = "text" value = " " name= "event1" class = "dayevent"><button type = "submit" id = "save">Save</button>
+            </div> </li>
+            <li id = "l6">
+            <div class = "event">
+                <label  class="time">02:00 pm</label>
+                <input type = "text" value = " " name= "event2" class= "dayevent"><button type = "submit" id = "save">Save</button>
+            </div> </li>
+            <li id = "l7">
+            <div class= "event">
+                <label  class ="time">03:00 pm</label>
+                <input type = "text" value = " " name= "event3" class = "dayevent"><button type = "submit" id = "save">Save</button>
+            </div> </li>
+            <div class = "event">
+                <li id = "l8">
+                <label  class ="time">04:00 pm</label>
+                <input type = "text" value = " " name= "event4" class = "dayevent"><button type = "submit" id = "save">Save</button>
+            </div> </ul>
+            <li class = "l9">
+            <div class = "event">
+                <label  class ="time">05:00 pm</label>
+                <input type = "text" value = " " name= "event5" class = "dayevent"><button type = "submit" id = "save">Save</button>
+            </div> 
+        </li>
+        </ul>
+    </div>
+   
+  <script type="text/javascript">
+
+  $(document).ready(function(){   
+
+// set up of day and time
+var btn=document.querySelector("#save");
+var m = moment();
+var currentTime=(m.format("hh:mm:ss"));
+var timeEl=document.querySelector("#currentTime");
+timeEl.innerHTML="Time:   "+currentTime;
+console.log(m.format("dddd"));
+var dayEl= document.querySelector("#dayofWeek");
+dayEl.innerHTML="Day:  "+m.format("dddd");
+var todaysDate= moment().format('MMMM Do YYYY');
+var dateEl = document.querySelector("#date");
+dateEl.innerHTML="Date:  "+todaysDate;
+    var eventsofDay = [];
+    function myEvent(){
+
+    var events= {
+        time: document.querySelectorAll('.time').value,
+        event: document.querySelectorAll('.event').value
+    };
+    eventsofDay.push(events);
+    localStorage.setItem('Myevents',JSON.stringify(eventsofDay));
+}
+    btn.addEventListener('click',myEvent);
+    function statusofEvent(){
+        for(var i=0;i<eventsofDay.length;i++){
+            if(c<eventsofDay.time){
+                document.getElementById('input').style.backgroundColor="green";
+            }
+           if(c === eventsofDay.time){
+            documnet.getElementById('input').style.backgroundColor="yellow";
+           }
+            else{
+                document.getElementById('input').style.backgroundColor="red";
+            }
+        }
+
+    }
+
+
+  });
+  </script>   
+
+</body>
+</html>
