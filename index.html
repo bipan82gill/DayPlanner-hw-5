@@ -20,47 +20,47 @@
         <ul id = 'uList'>
             <li id ="l1">
         <div class = "event">
-                <label  class ="time">09:00 am</label>
+                <label  class ="time" value = "09:00 am">09:00 am</label>
                 <input type = "text" value = " " name= "event9" class = "dayevent"><button type = "submit" id = "save">Save</button>
             </div> </li>
             <li id="l2">
             <div class = "event">
-                <label  class="time">10:00 am</label>
+                <label  class="time" value ="10:00 am">10:00 am</label>
                 <input type = "text" value = " " name= "event10" class = "dayevent"><button type = "submit" id = "save">Save</button>
             </div> </li>
             <li id = "l3">
             <div class = "event">
-                <label  class ="time">11:00 am</label>
+                <label  class ="time" value ="11:00 am">11:00 am</label>
                 <input type = "text" value = " " name= "event11" class ="dayevent"><button type = "submit" id = "save">Save</button>
             </div> </li>
             <li id = "l4">
             <div class = "event">
-                <label  class ="time">12:00 am</label>
+                <label  class ="time"value ="12:00 pm">12:00 am</label>
                 <input type = "text" value = " " name= "event12" class = "dayevent"><button type = "submit" id = "save">Save</button>
             </div> </li>
             <li id = "l5">
             <div class = "event">
-                <label  class ="time">01:00 pm</label>   
+                <label  class ="time" value ="01:00 pm">01:00 pm</label>   
                 <input type = "text" value = " " name= "event1" class = "dayevent"><button type = "submit" id = "save">Save</button>
             </div> </li>
             <li id = "l6">
             <div class = "event">
-                <label  class="time">02:00 pm</label>
+                <label  class="time" value ="02:00 pm">02:00 pm</label>
                 <input type = "text" value = " " name= "event2" class= "dayevent"><button type = "submit" id = "save">Save</button>
             </div> </li>
             <li id = "l7">
             <div class= "event">
-                <label  class ="time">03:00 pm</label>
+                <label  class ="time"value ="03:00 pm">03:00 pm</label>
                 <input type = "text" value = " " name= "event3" class = "dayevent"><button type = "submit" id = "save">Save</button>
             </div> </li>
             <div class = "event">
                 <li id = "l8">
-                <label  class ="time">04:00 pm</label>
+                <label  class ="time"value ="04:00 pm">04:00 pm</label>
                 <input type = "text" value = " " name= "event4" class = "dayevent"><button type = "submit" id = "save">Save</button>
-            </div> </ul>
-            <li class = "l9">
+            </div> </li>
+            <li class = "l9"></li>
             <div class = "event">
-                <label  class ="time">05:00 pm</label>
+                <label  class ="time"value ="05:00 pm">05:00 pm</label>
                 <input type = "text" value = " " name= "event5" class = "dayevent"><button type = "submit" id = "save">Save</button>
             </div> 
         </li>
@@ -85,10 +85,12 @@ var dateEl = document.querySelector("#date");
 dateEl.innerHTML="Date:  "+todaysDate;
     var eventsofDay = [];
     function myEvent(){
+        var timeinArr=$(this).value;
+        var eventinArr=$(this).value;
 
     var events= {
-        time: document.querySelectorAll('.time').value,
-        event: document.querySelectorAll('.event').value
+        time: timeinArr,
+        event: eventinArr
     };
     eventsofDay.push(events);
     localStorage.setItem('Myevents',JSON.stringify(eventsofDay));
@@ -96,14 +98,14 @@ dateEl.innerHTML="Date:  "+todaysDate;
     btn.addEventListener('click',myEvent);
     function statusofEvent(){
         for(var i=0;i<eventsofDay.length;i++){
-            if(c<eventsofDay.time){
-                document.getElementById('input').style.backgroundColor="green";
+            if(currentTime<eventsofDay.event){
+                document.querySelectorAll('#dayevent').style.backgroundColor="green";
             }
-           if(c === eventsofDay.time){
-            documnet.getElementById('input').style.backgroundColor="yellow";
+           if(currentTime === eventsofDay.event){
+            documnet.querySelectorAll('#dayevent').style.backgroundColor="yellow";
            }
             else{
-                document.getElementById('input').style.backgroundColor="red";
+                document.querySelectorAll('#dayevent').style.backgroundColor="red";
             }
         }
 
